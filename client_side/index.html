@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Chat app</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.2.0/socket.io.dev.js"></script>
+    <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
+</head>
+<body>
+    <div class="container">
+        <div class="login" id="login">
+            <div>
+                <p>Welcome to the Anon Chat.<br>Provide an image URL below or continue without an image</p>
+                <input id="imageUrl" type="text" placeholder="Optional  image URL">
+                <button id="loginSend">ENTER</button>
+            </div>
+        </div>
+        <div class="chatBox" id="chatBox">
+            <div id="chat">
+            </div>
+            <div class="messageArea">
+                <textarea name="" id="message" maxlength="200"></textarea>
+                <button id="sendBtn">Send</button>
+            </div>
+        </div>
+    </div>
+<script src="main.js"></script>   
+</body>
+</html>

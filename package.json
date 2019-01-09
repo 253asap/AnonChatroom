@@ -1,0 +1,18 @@
+{
+  "name": "chatapp",
+  "version": "1.0.0",
+  "description": "Chatting app",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js"
+  },
+  "author": "Asa White",
+  "license": "ISC",
+  "dependencies": {
+    "dompurify": "^1.0.8",
+    "express": "^4.16.4",
+    "jsdom": "^13.1.0",
+    "socket.io": "^2.2.0"
+  },
+  "devDependencies": {}
+}

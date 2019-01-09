@@ -1,0 +1,228 @@
+html, body{
+    height: 100%;
+    width: 100%;
+    margin:0;
+    padding: 0;
+    background-color: rgb(56, 56, 56);
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+textarea:focus,
+button:focus {
+    outline: none;
+}
+
+p{
+    margin: 0;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1; 
+}
+ 
+
+::-webkit-scrollbar-thumb {
+  background: #888; 
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #555; 
+}
+
+.container{
+    width: 100%;
+    height: 100%;
+}
+
+.chatBox{
+    box-sizing: border-box;
+    width: 70%;
+    margin: auto;
+    height: 100%;
+    background-color: rgb(66, 66, 66);
+    box-shadow: inset 0px 0px 6px 1px rgba(0,0,0,0.75);
+}
+
+#chat{
+    box-sizing: border-box;
+    height: calc(100% - 150px);
+    color: white;
+    overflow: auto;
+    padding-top: 5px;
+}
+
+.chatMessage{
+    display: flex;
+    background-color: rgb(26, 26, 26);
+    margin-left: 3px;
+    margin-bottom: 20px;
+    border-radius: 0px 20px 20px 0px;
+    width: fit-content;
+    max-width: 95%;
+    font-size: 1.1rem;
+    float: left;
+    clear: both;
+    word-break: break-all;
+}
+
+.myChatMessage{
+    display: flex;
+    flex-direction: row-reverse;
+    background-color: rgb(221, 221, 221);
+    margin-right: 3px;
+    margin-bottom: 20px;
+    border-radius: 20px 0px 0px 20px;
+    min-width: 180px;
+    width: fit-content;
+    max-width: 95%;
+    font-size: 1.1rem;
+    color: black;
+    float: right;
+    clear: both;
+    word-break: break-all;
+}
+
+.myChatMessage p{
+    margin: 0;
+    padding-left: 5px;
+    padding-bottom: 5px;
+}
+
+.myChatMessage div{
+    margin-right: 5px;
+}
+
+.chatMessage p{
+    margin: 0;
+    padding-right: 5px;
+    padding-bottom: 5px;
+}
+
+
+
+.time{
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    color: #888;
+}
+
+.chatMessage div{
+    margin-left: 5px;
+}
+
+.chatMessage img, .myChatMessage img{
+    height: 70px;
+    width: 70px;
+    margin: auto 0;
+    background-image: url('Anon.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.messageArea{
+    padding-top: 15px;
+    border-top: rgba(0, 0, 0, 0.39) solid 1px;
+    width: 100%;
+    text-align: center;
+}
+
+.messageArea textarea{
+    min-height: 110px;
+    max-height: 110px;
+    display: inline-block;
+    min-width: 70%;
+    max-width: 70%;
+    vertical-align: middle;
+    background-color: rgb(58, 58, 58);
+    border: rgba(29, 29, 29, 0.658) solid 1px;
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 1.3rem;
+}
+
+#sendBtn{
+    height: 112px;
+    width: 100px;
+    font-size: 2rem;
+    margin: 0;
+    padding: 0;
+    vertical-align: middle;
+    color: white;
+    background-color: rgb(27, 42, 124);
+    border: none;
+}
+
+#chatBox{
+    display: none;
+}
+
+#login{
+    padding-top: 150px;
+    display: block;
+}
+
+.login div{
+    text-align: center;
+    border: black 1px solid;
+    width: fit-content;
+    margin: auto;
+    color: white;
+    background-color: rgb(97, 97, 97);
+    font-size: 1.3rem;
+    padding: 5px;
+}
+
+.login button{
+    display: block;
+    width: 100%;
+    font-size: 24px;
+    color: white;
+    background-color: rgb(27, 42, 124);
+    border: none;
+    height: 50px;
+}
+
+.login input{
+    width: 100%;
+    font-size: 1.4rem;
+
+}
+
+#sendBtn, #loginSend:hover{
+    background-color: rgb(39, 56, 155);
+    cursor: pointer;
+}
+
+@media(max-width:780px){
+    .chatBox{
+        width: 90%;
+    }
+    .chatMessage, .myChatMessage{
+        font-size: 1rem;
+    }
+    .chatMessage img, .myChatMessage img{
+        height: 60px;
+        width: 60px;
+    }
+    .messageArea{
+        padding-top: 5px;
+    }
+    .messageArea textarea{
+        max-height: 82px;
+        min-height: 82px;
+        max-width: 98%;
+        min-width: 98%;
+    }
+    #sendBtn{
+        display: block;
+        width: 100%;
+        height: 56px;
+    }
+}
