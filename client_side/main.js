@@ -9,7 +9,11 @@ const CHATWINDOW = document.getElementById('chat');
 const PROFILEIMG = document.getElementById('profileImg');
 const CHATSEND = document.getElementById('sendBtn');
 const MESSAGE = document.getElementById('message');
+const MUTEBTN = document.getElementById('mute');
+const USERSON = document.getElementById('users');
 let image = 'Anon.png';
+let muteSound = false;
+let messageSound = new Audio('messageSound.ogg');
 
 //Login screen
 LOGINBTN.addEventListener('click', ()=>{
@@ -39,6 +43,19 @@ const sendChat = ()=>{
                 </div>`
     MESSAGE.value = '';
     sendMessage = false;
+    CHATWINDOW.scrollTo(0,CHATWINDOW.scrollHeight);
+}
+const mute = ()=>{
+    if(muteSound == false){
+        muteSound = true;
+        MUTEBTN.style.backgroundColor = 'rgb(148, 41, 33)';
+        MUTEBTN.innerHTML = 'Sound Off';
+    }
+    else{
+        muteSound = false;
+        MUTEBTN.style.backgroundColor = 'rgb(46, 148, 33)'
+        MUTEBTN.innerHTML = 'Sound On';
+    }
 }
 
 CHATSEND.addEventListener('click', sendChat);
@@ -46,7 +63,8 @@ MESSAGE.addEventListener('keypress',(e)=>{
     if(e.keyCode == 13){
         sendChat();
     }
-})
+});
+MUTEBTN.addEventListener('click', mute);
 
 //Listen for server events
 socket.on('chatMessage', (data)=>{
@@ -55,4 +73,11 @@ socket.on('chatMessage', (data)=>{
                     <img id="profileImg" src="${data.imageUrl}" alt="">
                     <div><p class="time">${time}</p><p>${data.message}</p></div>
                 </div>`
+    CHATWINDOW.scrollTo(0,CHATWINDOW.scrollHeight);
+    if(muteSound == false){
+        messageSound.play();
+    }
 });
+socket.on('userCount', (userCount)=>{
+    USERSON.innerHTML = userCount;
+})

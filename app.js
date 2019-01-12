@@ -15,12 +15,19 @@ app.use(express.static('client_side'));
 
 //socket and server interactions
 const io = socket(server);
+let currentUsers = 0;
 
 io.on('connection',(socket) => {
-    console.log(`Someone has connected`, socket.id);
+    console.log(`Someone has connected`);
+    currentUsers += 1;
+    io.emit('userCount', `User Online: ${currentUsers}`);
     socket.on('chatMessage', (data)=>{
-        data.imageUrl = DOMPurify.sanitize(data.imageUrl, {ALLOWED_TAGS: []});
-        data.message = DOMPurify.sanitize(data.message, {ALLOWED_TAGS: []});
+        data.imageUrl = DOMPurify.sanitize(data.imageUrl, {ALLOWED_TAGS: ['b']});
+        data.message = DOMPurify.sanitize(data.message, {ALLOWED_TAGS: ['b']});
         socket.broadcast.emit('chatMessage', data)
         });
+    socket.on('disconnect', ()=>{
+        currentUsers -= 1;
+        io.emit('userCount', `User Online: ${currentUsers}`);
+    })
 });
